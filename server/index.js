@@ -23,7 +23,7 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-
+app.use("/api",router)
 const startServer = async () => {
   try {
     await connectDB();
