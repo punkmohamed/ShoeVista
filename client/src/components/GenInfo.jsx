@@ -26,19 +26,19 @@ const GenInfo = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center my-20">
-      <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-screen-lg">
+    <div className="flex items-center justify-center my-20">
+      <ul className="grid w-full max-w-screen-lg grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {data.map((elem, id) => (
-          <li className="flex flex-col items-center bg-white p-4" key={id}>
+          <li className="flex flex-col items-center p-4 bg-white" key={id}>
             <div className="flex-shrink-0 mb-2">
               <img
                 src={elem.src}
                 alt={elem.title}
-                className="h-16 w-16  rounded-full bg-slate-200"
+                className="w-16 h-16 rounded-full bg-slate-200"
               />
             </div>
             <div className="text-center">
-              <p className="text-sm uppercase font-semibold">{elem.title}</p>
+              <p className="text-sm font-semibold uppercase">{elem.title}</p>
               <p className="text-xs text-gray-500">{elem.text}</p>
             </div>
           </li>
@@ -50,7 +50,7 @@ const GenInfo = () => {
 
 export default GenInfo;
 
-export const Brands = () => {
+export const Brands = ({title}) => {
   const navigate = useNavigate();
 
   const data = [
@@ -61,26 +61,25 @@ export const Brands = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center my-16 w-full">
-      <p className="child:ring-white font-bold mb-6">Top Brands</p>
+    <div className="flex flex-col items-center w-full my-16">
+      <p className="mb-6 font-bold child:ring-white">{title}</p>
       <div className="flex flex-wrap justify-center">
         {data.map((elem, id) => (
           <div
             key={id}
             className="relative w-[340px] h-[340px] mx-2 mb-6 hover:text-white"
           >
-            <div className="absolute w-full flex justify-center items-center top-4  ">
-              <p className="logo font-semibold z-50 ">{elem.name}</p>
+            <div className="absolute flex items-center justify-center w-full top-4 ">
+              <p className="z-50 font-semibold logo ">{elem.name}</p>
             </div>
             <img
               src={elem.src}
               alt={elem.name}
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
             <button
               onClick={() => navigate(elem.to)}
-              className="absolute inset-0 flex items-center justify-center
-                             bg-gray-800 text-white opacity-0 hover:opacity-80 transition-opacity duration-200"
+              className="absolute inset-0 flex items-center justify-center text-white transition-opacity duration-200 bg-gray-800 opacity-0 hover:opacity-80"
             >
               Explore →
             </button>
